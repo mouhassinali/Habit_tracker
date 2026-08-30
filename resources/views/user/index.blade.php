@@ -48,10 +48,10 @@
                     <h2 class="font-['Fraunces',serif] font-semibold text-xl">Habitudes du jour</h2>
                     <p class="text-sm text-[#8B7BAE]">Mercredi 26 août 2026</p>
                 </div>
-                <button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#EF4444] text-white text-sm font-semibold hover:bg-[#DC2626] transition-colors duration-300">
+                <a href="{{route('add-habits.index')}}" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#EF4444] text-white text-sm font-semibold hover:bg-[#DC2626] transition-colors duration-300">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
                     Ajouter
-                </button>
+                </a>
             </div>
 
             <div class="space-y-3">

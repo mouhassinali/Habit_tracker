@@ -34,17 +34,13 @@
                         <a href="{{route('edit-habit', $habit->id)}}" class="w-9 h-9 rounded-lg flex items-center justify-center text-[#8B7BAE] hover:bg-[#7C3AED]/10 hover:text-[#7C3AED] transition-colors duration-300" title="Modifier">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.4-9.4a2.1 2.1 0 013 3L12 15l-4 1 1-4 9.6-9.4z"/></svg>
                         </a>
-                        <form action="{{ route('delete-habit', $habit->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette habitude ?');" class="inline">
+                        <form action="{{route('delete-habit', $habit->id)}}" method="POST">
                             @csrf
-                            @method('DELETE')   
-                            
-                            <button type="submit" class="w-9 h-9 rounded-lg flex items-center justify-center text-[#8B7BAE] hover:bg-[#EF4444]/10 hover:text-[#EF4444] transition-colors duration-300" title="Supprimer">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 7h12M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2m2 0v13a2 2 0 01-2 2H8a2 2 0 01-2-2V7h12zM10 11v6m4-6v6"/>
-                                </svg>
+                            @method('DELETE')
+                            <button type="submit" class="w-9 h-9 rounded-lg flex items-center justify-center text-[#8B7BAE] hover:bg-[#EF4444]/10 hover:text-[#EF4444] transition-colors duration-300" title="Supprimer" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette habitude ?')" >
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 7h12M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2m2 0v13a2 2 0 01-2 2H8a2 2 0 01-2-2V7h12zM10 11v6m4-6v6"/></svg>
                             </button>
                         </form>
-
                     </div>
                 </div>
 

@@ -23,23 +23,27 @@
                 </div>
 
                 <nav class="flex-1 px-4 py-6 space-y-1.5">
-                    <a href="{{ route('user.index')}}" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-white font-medium border-l-4 border-[#EF4444]">
+                    <a href="{{ route('user.index') }}"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors duration-300 border-l-4
+                              {{ request()->routeIs('user.index') ? 'bg-white/10 text-white font-medium border-[#EF4444]' : 'text-white/70 hover:bg-white/10 hover:text-white border-transparent' }}">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                         Tableau de bord
                     </a>
-                    <a href="{{route('user.habits')}}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:bg-white/10 hover:text-white transition-colors duration-300 border-l-4 border-transparent">
+                    <a href="{{ route('user.habits') }}"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors duration-300 border-l-4
+                              {{ request()->routeIs('user.habits') || request()->routeIs('add-habits.index') || request()->routeIs('edit-habit*') ? 'bg-white/10 text-white font-medium border-[#EF4444]' : 'text-white/70 hover:bg-white/10 hover:text-white border-transparent' }}">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                         Mes habitudes
                     </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:bg-white/10 hover:text-white transition-colors duration-300 border-l-4 border-transparent">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        Calendrier
-                    </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:bg-white/10 hover:text-white transition-colors duration-300 border-l-4 border-transparent">
+                    <a href="{{ route('user.stats') }}"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors duration-300 border-l-4
+                              {{ request()->routeIs('user.stats') ? 'bg-white/10 text-white font-medium border-[#EF4444]' : 'text-white/70 hover:bg-white/10 hover:text-white border-transparent' }}">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-8-5v5m4-9v9m-9 3h18a1 1 0 001-1V5a1 1 0 00-1-1H3a1 1 0 00-1 1v11a1 1 0 001 1z"/></svg>
                         Statistiques
                     </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-white/70 hover:bg-white/10 hover:text-white transition-colors duration-300 border-l-4 border-transparent">
+                    <a href="{{ route('user.profil') }}"
+                       class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors duration-300 border-l-4
+                              {{ request()->routeIs('user.profile') ? 'bg-white/10 text-white font-medium border-[#EF4444]' : 'text-white/70 hover:bg-white/10 hover:text-white border-transparent' }}">
                         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z"/></svg>
                         Profil
                     </a>
@@ -96,22 +100,25 @@
 
         <!-- NAV MOBILE BASSE -->
         <nav class="md:hidden fixed bottom-0 inset-x-0 bg-white border-t border-[#E4DFF5] flex items-center justify-around py-2.5 z-50">
-            <a href="#" class="flex flex-col items-center gap-1 text-[#7C3AED] text-xs font-medium">
+            <a href="{{ route('user.index') }}" class="flex flex-col items-center gap-1 text-xs font-medium {{ request()->routeIs('user.index') ? 'text-[#7C3AED]' : 'text-[#8B7BAE]' }}">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                 Accueil
             </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-[#8B7BAE] text-xs font-medium">
+            <a href="{{ route('user.habits') }}" class="flex flex-col items-center gap-1 text-xs font-medium {{ request()->routeIs('user.habits') || request()->routeIs('add-habits.index') || request()->routeIs('edit-habit*') ? 'text-[#7C3AED]' : 'text-[#8B7BAE]' }}">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                 Habitudes
             </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-[#8B7BAE] text-xs font-medium">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                Calendrier
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-[#8B7BAE] text-xs font-medium">
+            <a href="{{ route('user.profil') }}" class="flex flex-col items-center gap-1 text-xs font-medium {{ request()->routeIs('user.profile') ? 'text-[#7C3AED]' : 'text-[#8B7BAE]' }}">
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z"/></svg>
                 Profil
             </a>
+            <form action="{{ route('logout') }}" method="POST" class="contents">
+                @csrf
+                <button type="submit" class="flex flex-col items-center gap-1 text-xs font-medium text-[#8B7BAE]">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                    Déconnexion
+                </button>
+            </form>
         </nav>
 
     </body>

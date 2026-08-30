@@ -27,8 +27,8 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 mt-8">
-                        <a href="#"><button class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#EF4444] text-white font-semibold hover:bg-[#DC2626] transition-colors duration-300 shadow-lg shadow-[#EF4444]/20">Commencer gratuitement</button></a>
-                        <a href="#"><button class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-[#E4DFF5] bg-white text-[#241B3A] font-semibold hover:bg-[#241B3A] hover:text-white hover:border-[#241B3A] transition-colors duration-300">Se connecter</button></a>
+                        <a href="{{route('inscription')}}"><button class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#EF4444] text-white font-semibold hover:bg-[#DC2626] transition-colors duration-300 shadow-lg shadow-[#EF4444]/20">Commencer gratuitement</button></a>
+                        <a href="{{route('connexion')}}"><button class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-[#E4DFF5] bg-white text-[#241B3A] font-semibold hover:bg-[#241B3A] hover:text-white hover:border-[#241B3A] transition-colors duration-300">Se connecter</button></a>
                     </div>
 
                     <div class="flex items-center gap-6 mt-10 text-sm text-[#5B4A7A]">

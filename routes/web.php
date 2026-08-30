@@ -38,3 +38,7 @@ Route::get('user/habits/edit-habit/{id}', [HabitsController::class, 'edit'])->na
 Route::put('user/habits/edit-habit/{id}', [HabitsController::class, 'update'])->name('update-habit');
 
 Route::delete('user/habits/delete-habit/{id}', [HabitsController::class, 'destroy'])->name('delete-habit'); 
+
+Route::get('user/profil', [DashboardController::class, 'profil'])->name('user.profil')->middleware('auth');
+
+Route::get('user/stats', [DashboardController::class, 'stats'])->name('user.stats')->middleware('auth');

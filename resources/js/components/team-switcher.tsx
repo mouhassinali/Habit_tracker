@@ -11,7 +11,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { switchMethod } from '@/routes/teams';
+// import { switchMethod } from '@/routes/teams';
 import type { Team } from '@/types';
 
 type TeamSwitcherProps = {
@@ -27,7 +27,7 @@ export function TeamSwitcher({ inHeader = false }: TeamSwitcherProps) {
     const switchTeam = (team: Team) => {
         const previousTeamSlug = currentTeam?.slug;
 
-        router.visit(switchMethod(team.slug), {
+        router.visit(`#${team.slug}`, {
             onFinish: () => {
                 if (!previousTeamSlug || typeof window === 'undefined') {
                     router.reload();

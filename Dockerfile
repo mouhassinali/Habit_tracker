@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     libpq-dev \
-    && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd
+    default-mysql-client \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql pgsql mbstring exif pcntl bcmath gd
 
 # Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -27,8 +28,8 @@ RUN composer install --no-dev --optimize-autoloader
 # Configuration des permissions pour Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Port d'écoute du conteneur
+# Port d'écoute du conteneur (Render fournit sa propre valeur via $PORT)
 EXPOSE 8000
 
-# Exécution des migrations puis lancement du serveur Laravel
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
+# Exécution des migrations puis lancement du serveur Laravel sur le port imposé par Render
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}

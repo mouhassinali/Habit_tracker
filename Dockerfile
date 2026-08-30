@@ -18,7 +18,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Définition du dossier de travail
 WORKDIR /var/www/html
 
-# Copie de l'intégralité du projet (y compris public/build compilé en local)
+# Copie de l'intégralité du projet (y compris public/build compilé)
 COPY . .
 
 # Installation des dépendances PHP pour la production
@@ -30,5 +30,5 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Port d'écoute du conteneur
 EXPOSE 8000
 
-# Commande de démarrage
-CMD php artisan serve --host=0.0.0.0 --port=8000
+# Exécution des migrations puis lancement du serveur Laravel
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000

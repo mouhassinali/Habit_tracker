@@ -1,22 +1,30 @@
+# --- Étape 1 : Build des assets avec Node ---
+FROM node:20-alpine AS frontend
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# --- Étape 2 : Environnement PHP / Laravel ---
 FROM php:8.3-fpm
 
-# Installation des dépendances système, Node.js et extensions PHP
 RUN apt-get update && apt-get install -y \
     nginx zip unzip git curl libpng-dev libonig-dev libxml2-dev \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
     && docker-php-ext-install pdo_mysql mbstring gd
 
 WORKDIR /var/www
 
 COPY . /var/www
 
-# Installation des dépendances Composer et NPM
+# Copie du dossier public/build généré par l'étape Node
+COPY --from=frontend /app/public/build /var/www/public/build
+
+# Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
-RUN npm install && npm run build
 
-# Droits sur le stockage Laravel
+# Droits sur le stockage
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 80

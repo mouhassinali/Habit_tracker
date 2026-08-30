@@ -1,0 +1,1 @@
+export const home = () => '#'; export const dashboard = () => '#'; export const index = () => '#'; export const edit = () => '#'; export const store = () => '#'; export const switchMethod = () => '#'; export const logout = () => '#';

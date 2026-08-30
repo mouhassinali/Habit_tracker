@@ -1,3 +1,16 @@
+FROM node:22-alpine AS assets
+
+WORKDIR /app
+
+# Installation des dépendances JS (mise en cache si package*.json ne change pas)
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Copie du reste du projet nécessaire à la compilation Vite/Tailwind
+COPY . .
+RUN npm run build
+
+
 FROM php:8.3-fpm
 
 # Installation des dépendances système et des extensions PHP nécessaires
@@ -19,8 +32,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Définition du dossier de travail
 WORKDIR /var/www/html
 
-# Copie de l'intégralité du projet (y compris public/build compilé)
+# Copie de l'intégralité du projet
 COPY . .
+
+# Récupération des assets Tailwind/Vite compilés à l'étape précédente
+COPY --from=assets /app/public/build ./public/build
 
 # Installation des dépendances PHP pour la production
 RUN composer install --no-dev --optimize-autoloader

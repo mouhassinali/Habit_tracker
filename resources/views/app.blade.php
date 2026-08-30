@@ -28,7 +28,7 @@
                     <ul class="hidden md:flex items-center gap-8">
                         <li><a href="{{route('index')}}" class="text-[#241B3A] hover:text-[#7C3AED] transition-colors duration-300 font-medium px-4 py-2">Accueil</a></li>
                         <li><a href="#fonctionnalités" class="text-[#241B3A] hover:text-[#7C3AED] transition-colors duration-300 font-medium px-4 py-2">Fonctionnalités</a></li>
-                        <li><a href="#" class="text-[#241B3A] hover:text-[#7C3AED] transition-colors duration-300 font-medium px-4 py-2">Contacts</a></li>
+                        <li><a href="https://wa.me/2290169313264" class="text-[#241B3A] hover:text-[#7C3AED] transition-colors duration-300 font-medium px-4 py-2">Contacts</a></li>
                     </ul>
 
                     <!-- BOUTONS (Masqués sur mobile, visibles sur écran md+) -->
@@ -54,7 +54,7 @@
                 <ul class="flex flex-col gap-3 my-4">
                     <li><a href="{{route('index')}}" class="block text-center text-[#241B3A] hover:bg-[#241B3A] hover:text-white border border-[#E4DFF5] rounded-lg px-4 py-2 transition-colors duration-300 font-medium">Accueil</a></li>
                     <li><a href="fonctionnalités#" class="block text-center text-[#241B3A] hover:bg-[#241B3A] hover:text-white border border-[#E4DFF5] rounded-lg px-4 py-2 transition-colors duration-300 font-medium">Fonctionnalités</a></li>
-                    <li><a href="#" class="block text-center text-[#241B3A] hover:bg-[#241B3A] hover:text-white border border-[#E4DFF5] rounded-lg px-4 py-2 transition-colors duration-300 font-medium">Contacts</a></li>
+                    <li><a href="https://wa.me/2290169313264" class="block text-center text-[#241B3A] hover:bg-[#241B3A] hover:text-white border border-[#E4DFF5] rounded-lg px-4 py-2 transition-colors duration-300 font-medium">Contacts</a></li>
                 </ul>
                 <div class="flex flex-col gap-3 border-t border-[#E4DFF5] pt-4">
                     <a href="{{ route('inscription') }}"><button class="w-full border border-[#E4DFF5] py-2 rounded-lg hover:bg-[#241B3A] hover:text-white transition-colors duration-300 font-medium">S'inscrire</button></a>
